@@ -1,0 +1,15 @@
+.imageList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.imageListItem {
+  width: 400px;
+  height: 275px;
+}
+/* .imageListItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+} */
