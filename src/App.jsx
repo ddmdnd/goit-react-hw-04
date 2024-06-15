@@ -11,24 +11,44 @@ import { getImages } from "./Components/api/imageApi";
 function App() {
   const [imagesState, setImagesState] = useState([]);
   const [inputStorageValue, setInputStorageValue] = useState();
+  const [error, setError] = useState(false);
+  const [load, setLoad] = useState(false);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const processingRequestImages = async () => {
-      if (inputStorageValue) {
-        const dataServer = await getImages(inputStorageValue);
-        setImagesState(dataServer);
+      try {
+        if (inputStorageValue) {
+          setError(false);
+          setLoad(true);
+          const dataServer = await getImages(inputStorageValue, page);
+          // setImagesState(dataServer);
+          setImagesState((prev) => [...prev, ...dataServer]);
+        }
+      } catch (e) {
+        setError(true);
+      } finally {
+        setLoad(false);
       }
     };
     processingRequestImages();
-  }, [inputStorageValue]);
+  }, [inputStorageValue, page]);
   const searchSubmit = (valueInput) => {
+    setImagesState([]);
     setInputStorageValue(valueInput);
+  };
+
+  const pageCount = (pageCount) => {
+    setPage(page + pageCount);
   };
 
   return (
     <>
       <SearchBar onSubmit={searchSubmit} />
+      {load && <Loader />}
+      {error && <ErrorMessage />}
       <ImageGallery test={imagesState} />
+      {!error && inputStorageValue && <LoadMoreBtn page={pageCount} />}
     </>
   );
 }

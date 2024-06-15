@@ -1,10 +1,12 @@
 import React from "react";
+import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 
 const SearchBar = ({ onSubmit }) => {
   const searchRequest = (even) => {
     even.preventDefault();
     const searchValue = even.target.elements.search.value;
     onSubmit(searchValue);
+    even.target.reset();
   };
   return (
     <header>

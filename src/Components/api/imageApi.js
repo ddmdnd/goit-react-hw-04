@@ -7,7 +7,7 @@ export const getImages = async (searchQuery, page) => {
       client_id: `${YOUR_ACCESS_KEY}`,
       query: searchQuery,
       per_page: 9,
-      page: 1,
+      page,
     },
   });
 
