@@ -13,7 +13,7 @@ const customStyles = {
   },
 };
 const LoadMoreBtn = ({ action, result, arrayClick }) => {
-  let subtitle;
+  // let subtitle;
   // function openModal() {
   //   action(true);
 
@@ -21,7 +21,7 @@ const LoadMoreBtn = ({ action, result, arrayClick }) => {
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
+    // subtitle.style.color = "#f00";
   }
 
   function closeModal() {
@@ -45,7 +45,7 @@ const LoadMoreBtn = ({ action, result, arrayClick }) => {
         )}
         {/* {arrayClick} */}
 
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
         <button onClick={closeModal}>close</button>
         <div>I am a modal</div>
         <form>
@@ -54,7 +54,7 @@ const LoadMoreBtn = ({ action, result, arrayClick }) => {
           <button>stays</button>
           <button>inside</button>
           <button>the modal</button>
-        </form>
+        </form> */}
       </Modal>
     </div>
   );

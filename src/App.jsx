@@ -37,7 +37,9 @@ function App() {
   }, [inputStorageValue, page]);
   const searchSubmit = (valueInput) => {
     setImagesState([]);
+    setInputStorageValue();
     setInputStorageValue(valueInput);
+    console.log(imagesState);
   };
 
   const pageCount = (pageCount) => {
