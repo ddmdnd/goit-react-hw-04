@@ -7,6 +7,7 @@ import Loader from "./Components/Loader/Loader";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
 import { getImages } from "./Components/api/imageApi";
+import ReactDOM from "react-dom";
 
 function App() {
   const [imagesState, setImagesState] = useState([]);
@@ -14,6 +15,7 @@ function App() {
   const [error, setError] = useState(false);
   const [load, setLoad] = useState(false);
   const [page, setPage] = useState(1);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const processingRequestImages = async () => {
@@ -22,7 +24,6 @@ function App() {
           setError(false);
           setLoad(true);
           const dataServer = await getImages(inputStorageValue, page);
-          // setImagesState(dataServer);
           setImagesState((prev) => [...prev, ...dataServer]);
         }
       } catch (e) {
@@ -41,12 +42,15 @@ function App() {
   const pageCount = (pageCount) => {
     setPage(page + pageCount);
   };
-
+  const modalAction = (action) => {
+    setIsOpen(action);
+  };
   return (
     <>
       <SearchBar onSubmit={searchSubmit} />
       {load && <Loader />}
       {error && <ErrorMessage />}
+      <ImageModal action={modalAction} result={modalIsOpen} />
       <ImageGallery test={imagesState} />
       {!error && inputStorageValue && <LoadMoreBtn page={pageCount} />}
     </>
