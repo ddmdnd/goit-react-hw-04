@@ -12,11 +12,12 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
   },
 };
-const LoadMoreBtn = ({ action, result }) => {
+const LoadMoreBtn = ({ action, result, arrayClick }) => {
   let subtitle;
-  function openModal() {
-    action(true);
-  }
+  // function openModal() {
+  //   action(true);
+
+  // }
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
@@ -26,16 +27,24 @@ const LoadMoreBtn = ({ action, result }) => {
   function closeModal() {
     action(false);
   }
-
   return (
     <div>
-      <button onClick={openModal}>Open Modal</button>
+      {/* <button onClick={openModal}>Open Modal</button> */}
       <Modal
         isOpen={result}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal">
+        {arrayClick && (
+          <img
+            // className={css.imageListItemImg}
+            src={arrayClick.urls.regular}
+            alt={arrayClick.alt_description}
+          />
+        )}
+        {/* {arrayClick} */}
+
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
         <button onClick={closeModal}>close</button>
         <div>I am a modal</div>

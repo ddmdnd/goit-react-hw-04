@@ -16,6 +16,7 @@ function App() {
   const [load, setLoad] = useState(false);
   const [page, setPage] = useState(1);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [arrayClick, setArrayClick] = useState();
 
   useEffect(() => {
     const processingRequestImages = async () => {
@@ -23,7 +24,6 @@ function App() {
         if (inputStorageValue) {
           setError(false);
           setLoad(true);
-          // setInputStorageValue();
           const dataServer = await getImages(inputStorageValue, page);
           setImagesState((prev) => [...prev, ...dataServer]);
         }
@@ -46,13 +46,22 @@ function App() {
   const modalAction = (action) => {
     setIsOpen(action);
   };
+
   return (
     <>
       <SearchBar onSubmit={searchSubmit} />
       {load && <Loader />}
       {error && <ErrorMessage />}
-      <ImageModal action={modalAction} result={modalIsOpen} />
-      <ImageGallery responseArray={imagesState} />
+      <ImageModal
+        action={modalAction}
+        result={modalIsOpen}
+        arrayClick={arrayClick}
+      />
+      <ImageGallery
+        responseArray={imagesState}
+        modalImageIs={modalAction}
+        setArrayClick={setArrayClick}
+      />
       {!error && inputStorageValue && <LoadMoreBtn page={pageCount} />}
     </>
   );
