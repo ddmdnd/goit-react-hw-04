@@ -20,13 +20,12 @@ function App() {
 
   useEffect(() => {
     const processingRequestImages = async () => {
+      if (!inputStorageValue) return;
+      setError(false);
+      setLoad(true);
       try {
-        if (inputStorageValue) {
-          setError(false);
-          setLoad(true);
-          const dataServer = await getImages(inputStorageValue, page);
-          setImagesState((prev) => [...prev, ...dataServer]);
-        }
+        const dataServer = await getImages(inputStorageValue, page);
+        setImagesState((prev) => [...prev, ...dataServer]);
       } catch (e) {
         setError(true);
       } finally {
@@ -36,10 +35,12 @@ function App() {
     processingRequestImages();
   }, [inputStorageValue, page]);
   const searchSubmit = (valueInput) => {
-    setImagesState([]);
-    setInputStorageValue();
+    if (inputStorageValue != valueInput) {
+      setImagesState([]);
+      setInputStorageValue();
+      setPage(1);
+    }
     setInputStorageValue(valueInput);
-    console.log(imagesState);
   };
 
   const pageCount = (pageCount) => {
