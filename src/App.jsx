@@ -23,6 +23,7 @@ function App() {
         if (inputStorageValue) {
           setError(false);
           setLoad(true);
+          // setInputStorageValue();
           const dataServer = await getImages(inputStorageValue, page);
           setImagesState((prev) => [...prev, ...dataServer]);
         }
@@ -51,7 +52,7 @@ function App() {
       {load && <Loader />}
       {error && <ErrorMessage />}
       <ImageModal action={modalAction} result={modalIsOpen} />
-      <ImageGallery test={imagesState} />
+      <ImageGallery responseArray={imagesState} />
       {!error && inputStorageValue && <LoadMoreBtn page={pageCount} />}
     </>
   );
