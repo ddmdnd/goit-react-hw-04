@@ -12,7 +12,7 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
   },
 };
-const LoadMoreBtn = ({ action, result, arrayClick }) => {
+const ImageModal = ({ action, result, arrayClick }) => {
   // let subtitle;
   // function openModal() {
   //   action(true);
@@ -60,4 +60,4 @@ const LoadMoreBtn = ({ action, result, arrayClick }) => {
   );
 };
 
-export default LoadMoreBtn;
+export default ImageModal;

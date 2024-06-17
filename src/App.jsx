@@ -8,6 +8,7 @@ import SearchBar from "./Components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
 import { getImages } from "./Components/api/imageApi";
 import ReactDOM from "react-dom";
+import { IoIosSearch } from "react-icons/io";
 
 function App() {
   const [imagesState, setImagesState] = useState([]);

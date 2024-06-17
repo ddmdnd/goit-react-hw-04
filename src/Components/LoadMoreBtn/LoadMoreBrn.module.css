@@ -1,0 +1,10 @@
+.loadMoreBtmContainer {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  place-items: center;
+}
+.loadMoreBtm {
+  margin-left: auto;
+  margin-right: auto;
+}

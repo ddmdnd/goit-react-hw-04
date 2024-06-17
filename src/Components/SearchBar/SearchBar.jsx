@@ -1,5 +1,7 @@
 import React from "react";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
+import { IoIosSearch } from "react-icons/io";
+import css from "./SearchBar.module.css";
 
 const SearchBar = ({ onSubmit }) => {
   const searchRequest = (even) => {
@@ -9,18 +11,24 @@ const SearchBar = ({ onSubmit }) => {
     even.target.reset();
   };
   return (
-    <header>
-      <form onSubmit={searchRequest}>
-        <input
-          name="search"
-          type="text"
-          autoComplete="off"
-          autoFocus
-          placeholder="Search images and photos"
-        />
-        <button type="submit">Search</button>
-      </form>
-    </header>
+    <div className={css.searchSection}>
+      <header className={css.header}>
+        <form onSubmit={searchRequest} className={css.searchButtonBox}>
+          {/* <IoIosSearch /> */}
+          <button type="submit" className={css.searchBtm}>
+            <IoIosSearch />
+          </button>
+          <input
+            className={css.searchInput}
+            name="search"
+            type="text"
+            autoComplete="off"
+            autoFocus
+            placeholder="Search images and photos"
+          />
+        </form>
+      </header>
+    </div>
   );
 };
 
