@@ -36,6 +36,17 @@
   box-shadow: none;
   background: none;
   background-color: none;
+  color: inherit;
+}
+.iconBtmSearch {
+  width: 15px;
+  height: 15px;
+}
+.iconBtmSearch:hover,
+.iconBtmSearch:focus {
+  color: inherit;
+  width: 15px;
+  height: 15px;
 }
 .searchInput {
   width: 200px;

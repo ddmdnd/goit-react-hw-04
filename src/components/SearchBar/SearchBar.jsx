@@ -20,7 +20,7 @@ const SearchBar = ({ onSubmit }) => {
       <header className={css.header}>
         <form onSubmit={searchRequest} className={css.searchButtonBox}>
           <button type="submit" className={css.searchBtm}>
-            <IoIosSearch />
+            <IoIosSearch className={css.iconBtmSearch} />
           </button>
           <input
             className={css.searchInput}
