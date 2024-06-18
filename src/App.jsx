@@ -62,7 +62,7 @@ function App() {
         modalImageIs={modalAction}
         setArrayClick={setArrayClick}
       />
-      {!error && inputStorageValue && <LoadMoreBtn page={pageCount} />}
+      {!error && imagesState.length > 0 && <LoadMoreBtn page={pageCount} />}
     </>
   );
 }

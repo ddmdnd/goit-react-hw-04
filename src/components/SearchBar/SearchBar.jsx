@@ -1,13 +1,17 @@
 import React from "react";
 import { IoIosSearch } from "react-icons/io";
 import css from "./SearchBar.module.css";
+import toast, { Toaster } from "react-hot-toast";
 
-const SearchBar = ({ onSubmit, inputValue }) => {
+const SearchBar = ({ onSubmit }) => {
+  const notify = () => toast.error("Please, input something");
   const searchRequest = (even) => {
     even.preventDefault();
     const searchValue = even.target.elements.search.value;
     if (searchValue) {
       onSubmit(searchValue);
+    } else {
+      notify();
     }
     even.target.reset();
   };
@@ -28,6 +32,9 @@ const SearchBar = ({ onSubmit, inputValue }) => {
           />
         </form>
       </header>
+      <div>
+        <Toaster position="top-left" reverseOrder={true} />
+      </div>
     </div>
   );
 };
