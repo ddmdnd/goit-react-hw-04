@@ -27,8 +27,8 @@
   padding: 0px;
   border-radius: 2px;
 }
-.searchBtm:focus,
-.searchBtm:focus {
+.searchBtm :focus,
+.searchBtm :hover {
   height: 20px;
   width: 10px;
   outline: none;
