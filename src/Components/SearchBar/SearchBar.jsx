@@ -1,5 +1,4 @@
 import React from "react";
-import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import { IoIosSearch } from "react-icons/io";
 import css from "./SearchBar.module.css";
 
@@ -14,7 +13,6 @@ const SearchBar = ({ onSubmit }) => {
     <div className={css.searchSection}>
       <header className={css.header}>
         <form onSubmit={searchRequest} className={css.searchButtonBox}>
-          {/* <IoIosSearch /> */}
           <button type="submit" className={css.searchBtm}>
             <IoIosSearch />
           </button>

@@ -1,8 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Modal from "react-modal";
+
 Modal.setAppElement("#rt");
 const customStyles = {
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
+  },
   content: {
     top: "50%",
     left: "50%",
@@ -10,51 +13,31 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    background: "none",
+    border: "none",
   },
 };
 const ImageModal = ({ action, result, arrayClick }) => {
-  // let subtitle;
-  // function openModal() {
-  //   action(true);
-
+  // function afterOpenModal() {
+  //   references are now sync'd and can be accessed.
+  //   subtitle.style.color = "#f00";
   // }
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    // subtitle.style.color = "#f00";
-  }
 
   function closeModal() {
     action(false);
   }
   return (
     <div>
-      {/* <button onClick={openModal}>Open Modal</button> */}
       <Modal
         isOpen={result}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
+        // style={customStyles}
         style={customStyles}
         contentLabel="Example Modal">
         {arrayClick && (
-          <img
-            // className={css.imageListItemImg}
-            src={arrayClick.urls.regular}
-            alt={arrayClick.alt_description}
-          />
+          <img src={arrayClick.urls.regular} alt={arrayClick.alt_description} />
         )}
-        {/* {arrayClick} */}
-
-        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form> */}
       </Modal>
     </div>
   );

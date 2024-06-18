@@ -1,6 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Modal from "react-modal";
 import css from "./LoadMoreBrn.module.css";
 
 const LoadMoreBtn = ({ page }) => {
