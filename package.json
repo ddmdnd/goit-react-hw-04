@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "pregit": "git add .",
-    "git": "git commit -m 'Add .env to .gitignore'",
+    "git": "git commit -m 'update'",
     "postgit": "git push ",
     "dev": "vite",
     "build": "vite build",
