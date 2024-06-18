@@ -2,11 +2,13 @@ import React from "react";
 import { IoIosSearch } from "react-icons/io";
 import css from "./SearchBar.module.css";
 
-const SearchBar = ({ onSubmit }) => {
+const SearchBar = ({ onSubmit, inputValue }) => {
   const searchRequest = (even) => {
     even.preventDefault();
     const searchValue = even.target.elements.search.value;
-    onSubmit(searchValue);
+    if (searchValue) {
+      onSubmit(searchValue);
+    }
     even.target.reset();
   };
   return (
