@@ -1,12 +1,12 @@
 import axios from "axios";
-import ErrorMessage from "./Components/ErrorMessage/ErrorMessage";
-import ImageGallery from "./Components/ImageGallery/ImageGallery";
-import ImageModal from "./Components/ImageModal/ImageModal";
-import LoadMoreBtn from "./Components/LoadMoreBtn/LoadMoreBtn";
-import Loader from "./Components/Loader/Loader";
-import SearchBar from "./Components/SearchBar/SearchBar";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
+import ImageGallery from "./components/ImageGallery/ImageGallery";
+import ImageModal from "./components/ImageModal/ImageModal";
+import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
+import Loader from "./components/Loader/Loader";
+import SearchBar from "./components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
-import { getImages } from "./Components/api/imageApi";
+import { getImages } from "./components/api/imageApi";
 
 function App() {
   const [imagesState, setImagesState] = useState([]);
