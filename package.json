@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "pregit": "git add .",
-    "git": "git commit -m 'update'",
+    "git": "git commit -m 'Add .env to .gitignore'",
     "postgit": "git push ",
     "dev": "vite",
     "build": "vite build",
@@ -21,6 +21,7 @@
     "react-icons": "^5.2.1",
     "react-loader-spinner": "^6.1.6",
     "react-modal": "^3.16.1",
+    "react-scripts": "^5.0.1",
     "yarn": "^1.22.22"
   },
   "devDependencies": {
@@ -32,5 +33,10 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "vite": "^5.2.0"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "vite.config.js",
+  "keywords": [],
+  "author": "Dmytro Davydenko <davidenkomail@gmail.com>",
+  "license": "ISC"
 }
