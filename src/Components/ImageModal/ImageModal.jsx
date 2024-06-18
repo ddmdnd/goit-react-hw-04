@@ -30,9 +30,8 @@ const ImageModal = ({ action, result, arrayClick }) => {
     <div>
       <Modal
         isOpen={result}
-        onAfterOpen={afterOpenModal}
+        // onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        // style={customStyles}
         style={customStyles}
         contentLabel="Example Modal">
         {arrayClick && (
